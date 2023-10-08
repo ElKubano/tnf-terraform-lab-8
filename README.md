@@ -6,21 +6,21 @@ Cette base de données sera créée au travers du service [RDS (Relational Datab
 
 ## Déclaration de la base de données
 
-En vous appuyant sur la [documentation officielle de terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance), déclarez dans un fichier database.tf la base de données MySQL avec les caractéristiques suivantes :
+En vous appuyant sur la [documentation officielle de terraform](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance), déclarez dans un fichier **database.tf** la base de données MySQL avec les caractéristiques suivantes :
 
-| Caractéristique                         | Valeur                                                                                        |
-|-----------------------------------------|-----------------------------------------------------------------------------------------------|
-| Nom                                     | nuumfactory-<environnement>-db-<digit> (vous pouvez créer une variable locale supplémentaire) |
-| Stockage alloué                         | 10Go                                                                                          |
-| Nom de l’instance de base de données    | nuumfactorydb<digit>                                                                          |
-| Moteur                                  | MySQL                                                                                         |
-| Version du moteur                       | 8.0                                                                                           |
-| Sizing                                  | db.t3.micro                                                                                   |
-| Nom du subnet group associé             | "nuumfactory-db-subnet-group"                                                                 |
-| Security group                          | Votre security group DB                                                                       |
-| Nom de l’utilisateur principal          | dbadmin                                                                                       |
-| Mot de passe de l’utilisateur principal | dbadminpassword                                                                               |
-| Snapshot final à la destruction ?       | Non                                                                                           |
+| Caractéristique                         | Valeur                                                                                            |
+|-----------------------------------------|---------------------------------------------------------------------------------------------------|
+| Nom                                     | nuumfactory-\<environnement\>-db-\<digit\> (Utilisez la variable locale correspondante)           |
+| Stockage alloué                         | 10Go                                                                                              |
+| Nom de l’instance de base de données    | nuumfactorydb\<digit\>                                                                            |
+| Moteur                                  | MySQL                                                                                             |
+| Version du moteur                       | 8.0                                                                                               |
+| Sizing                                  | db.t3.micro                                                                                       |
+| Nom du subnet group associé             | "nuumfactory-db-subnet-group"                                                                     |
+| Security group                          | Votre security group DB                                                                           |
+| Nom de l’utilisateur principal          | dbadmin                                                                                           |
+| Mot de passe de l’utilisateur principal | dbadminpassword                                                                                   |
+| Snapshot final à la destruction ?       | Non                                                                                               |
 
 *N.B : Renseigner des credentials (login / mot de passe) dans votre code terraform n’est pas du tout conseillé. Une bonne pratique est d’utiliser des outils tiers tels qu’Hashicorp Vault, AWS Secret Manager ou Conjur pour stocker ces informations sensibles.*
 
